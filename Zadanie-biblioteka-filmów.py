@@ -60,4 +60,34 @@ class Media_library:
             random_views = random.randint(1, 100)
             random_media.play(random_views)
     
+library = Media_library()
 
+movie1 = Movie("Pulp Fiction", 1994, "Crime")
+movie2 = Movie("The Shawshank Redemption", 1994, "Drama")
+library.get_media(movie1)
+library.get_media(movie2)
+
+series1 = Series("Breaking Bad", 2008, "Crime", 1, 1)
+series2 = Series("Stranger Things", 2016, "Drama", 2, 3)
+library.get_media(series1)
+library.get_media(series2)
+
+library.generate_views(10)
+
+print("Movies:")
+for movie in library.get_movies():
+    print(movie)
+
+print("\nSeries:")
+for series in library.get_series():
+    print(series)
+
+search_results = library.search("Pulp")
+print("\nSearch Results:")
+for result in search_results:
+    print(result)
+
+top_titles = library.top_titles(3)
+print("\nTop Titles:")
+for title in top_titles:
+    print(f"{title.title} - {title.views} views")
